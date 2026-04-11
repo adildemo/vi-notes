@@ -3,16 +3,18 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
-const PORT = 5000;
-const JWT_SECRET = "supersecretkey";
+const PORT = process.env.PORT || 5000;
+const JWT_SECRET = process.env.JWT_SECRET as string;
 
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/vinotes")
-  .then(() => console.log("MongoDB Connected"))
+mongoose.connect(process.env.MONGO_URI as string)
+  .then(() => console.log("MongoDB Atlas Connected"))
   .catch(err => console.log(err));
 
 
