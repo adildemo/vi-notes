@@ -69,7 +69,7 @@ function App() {
   async function register() {
     setError("");
 
-    const res = await fetch("http://localhost:5000/register", {
+    const res = await fetch("https://vi-notes-backend-k21f.onrender.com/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
@@ -86,7 +86,7 @@ function App() {
   async function login() {
     setError("");
 
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch("https://vi-notes-backend-k21f.onrender.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -118,7 +118,7 @@ function App() {
 
     setAnalysis(result);
 
-    await fetch("http://localhost:5000/save", {
+    await fetch("https://vi-notes-backend-k21f.onrender.com/save", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -139,7 +139,7 @@ function App() {
   }
 
   async function fetchNotes() {
-    const res = await fetch("http://localhost:5000/notes", {
+    const res = await fetch("https://vi-notes-backend-k21f.onrender.com/notes", {
       headers: {
         Authorization: `Bearer ${token}`, 
       },
